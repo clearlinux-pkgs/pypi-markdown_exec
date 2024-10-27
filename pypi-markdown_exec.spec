@@ -7,7 +7,7 @@
 #
 Name     : pypi-markdown_exec
 Version  : 1.9.3
-Release  : 15
+Release  : 16
 URL      : https://files.pythonhosted.org/packages/e4/41/5173766cc223e3d410b6f7d6590f48dda5408ffa925af7f341a760621dcc/markdown_exec-1.9.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/e4/41/5173766cc223e3d410b6f7d6590f48dda5408ffa925af7f341a760621dcc/markdown_exec-1.9.3.tar.gz
 Summary  : Utilities to execute code blocks in Markdown files.
