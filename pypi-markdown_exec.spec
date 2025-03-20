@@ -6,13 +6,14 @@
 # autospec commit: fbbd4e3
 #
 Name     : pypi-markdown_exec
-Version  : 1.10.1
-Release  : 19
-URL      : https://files.pythonhosted.org/packages/b2/8c/6997830571ad95affc934a448e073d123e1f93030c1252a9641e8567cc2d/markdown_exec-1.10.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/b2/8c/6997830571ad95affc934a448e073d123e1f93030c1252a9641e8567cc2d/markdown_exec-1.10.1.tar.gz
+Version  : 1.10.2
+Release  : 20
+URL      : https://files.pythonhosted.org/packages/ad/2f/9cd26ebda86b1e63f6785e39f40b824cab190d14b926cf2205041e981771/markdown_exec-1.10.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/ad/2f/9cd26ebda86b1e63f6785e39f40b824cab190d14b926cf2205041e981771/markdown_exec-1.10.2.tar.gz
 Summary  : Utilities to execute code blocks in Markdown files.
 Group    : Development/Tools
 License  : ISC
+Requires: pypi-markdown_exec-license = %{version}-%{release}
 Requires: pypi-markdown_exec-python = %{version}-%{release}
 Requires: pypi-markdown_exec-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -27,6 +28,14 @@ BuildRequires : pypi(pdm_backend)
 [![documentation](https://img.shields.io/badge/docs-mkdocs-708FCC.svg?style=flat)](https://pawamoy.github.io/markdown-exec/)
 [![pypi version](https://img.shields.io/pypi/v/markdown-exec.svg)](https://pypi.org/project/markdown-exec/)
 [![gitter](https://badges.gitter.im/join%20chat.svg)](https://app.gitter.im/#/room/#markdown-exec:gitter.im)
+
+%package license
+Summary: license components for the pypi-markdown_exec package.
+Group: Default
+
+%description license
+license components for the pypi-markdown_exec package.
+
 
 %package python
 Summary: python components for the pypi-markdown_exec package.
@@ -49,10 +58,10 @@ python3 components for the pypi-markdown_exec package.
 
 
 %prep
-%setup -q -n markdown_exec-1.10.1
-cd %{_builddir}/markdown_exec-1.10.1
+%setup -q -n markdown_exec-1.10.2
+cd %{_builddir}/markdown_exec-1.10.2
 pushd ..
-cp -a markdown_exec-1.10.1 buildavx2
+cp -a markdown_exec-1.10.2 buildavx2
 popd
 
 %build
@@ -60,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1741705124
+export SOURCE_DATE_EPOCH=1742494972
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -105,6 +114,8 @@ ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-markdown_exec
+cp %{_builddir}/markdown_exec-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-markdown_exec/0a44cdd53cd87bc80abac44e5fcc076c4c929e16 || :
 python3 -m installer --destdir=%{buildroot} dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -121,6 +132,10 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-markdown_exec/0a44cdd53cd87bc80abac44e5fcc076c4c929e16
 
 %files python
 %defattr(-,root,root,-)
