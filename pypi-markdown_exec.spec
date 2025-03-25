@@ -6,10 +6,10 @@
 # autospec commit: fbbd4e3
 #
 Name     : pypi-markdown_exec
-Version  : 1.10.2
-Release  : 20
-URL      : https://files.pythonhosted.org/packages/ad/2f/9cd26ebda86b1e63f6785e39f40b824cab190d14b926cf2205041e981771/markdown_exec-1.10.2.tar.gz
-Source0  : https://files.pythonhosted.org/packages/ad/2f/9cd26ebda86b1e63f6785e39f40b824cab190d14b926cf2205041e981771/markdown_exec-1.10.2.tar.gz
+Version  : 1.10.3
+Release  : 21
+URL      : https://files.pythonhosted.org/packages/70/e8/dafa2b91c60f3cec6a2926851fb20b3c1fcdfd5721d6ea0b65bb6b7dab7b/markdown_exec-1.10.3.tar.gz
+Source0  : https://files.pythonhosted.org/packages/70/e8/dafa2b91c60f3cec6a2926851fb20b3c1fcdfd5721d6ea0b65bb6b7dab7b/markdown_exec-1.10.3.tar.gz
 Summary  : Utilities to execute code blocks in Markdown files.
 Group    : Development/Tools
 License  : ISC
@@ -58,10 +58,10 @@ python3 components for the pypi-markdown_exec package.
 
 
 %prep
-%setup -q -n markdown_exec-1.10.2
-cd %{_builddir}/markdown_exec-1.10.2
+%setup -q -n markdown_exec-1.10.3
+cd %{_builddir}/markdown_exec-1.10.3
 pushd ..
-cp -a markdown_exec-1.10.2 buildavx2
+cp -a markdown_exec-1.10.3 buildavx2
 popd
 
 %build
@@ -69,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1742494972
+export SOURCE_DATE_EPOCH=1742913235
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
